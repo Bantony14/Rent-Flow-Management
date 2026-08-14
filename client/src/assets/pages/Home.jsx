@@ -55,10 +55,10 @@ function Home() {
               className="w-full h-full object-cover opacity-20"
             />
           ) : (
-            <div className="w-full h-full bg-gray-300 animate-pulse" />
+            <div className="w-full h-full bg-zinc-800 animate-pulse" />
           )}
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/90 via-zinc-950/80 to-zinc-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/70 via-zinc-950/60 to-zinc-950" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-16 pb-12 md:pt-6 md:pb-1 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* LEFT CONTENT */}
@@ -138,12 +138,14 @@ function Home() {
           <div className="relative">
             <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-cyan-500/20 blur-3xl rounded-full" />
             <div className="relative rounded-3xl overflow-hidden border border-zinc-800 bg-zinc-900/50 backdrop-blur-xl shadow-2xl">
-              {heroImage && (
+              {heroImage ? (
                 <img
                   src={heroImage}
                   alt="property"
                   className="w-full h-64 sm:h-80 lg:h-96 object-cover"
                 />
+              ) : (
+                <div className="w-full h-64 sm:h-80 lg:h-96 bg-zinc-800 animate-pulse" />
               )}
               <div className="p-5 sm:p-7">
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
