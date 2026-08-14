@@ -48,12 +48,14 @@ function Home() {
       <section className="relative bg-zinc-950 text-white overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          {heroImage && (
+          {heroImage ? (
             <img
               src={heroImage}
               alt="property"
               className="w-full h-full object-cover opacity-20"
             />
+          ) : (
+            <div className="w-full h-full bg-gray-300 animate-pulse" />
           )}
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/90 via-zinc-950/80 to-zinc-950" />
