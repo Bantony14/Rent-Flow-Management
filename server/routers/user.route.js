@@ -71,7 +71,7 @@ route.put(
   updateMemberInfo,
 );
 route.get("/getreceipt", isLoggedIn, getReceiptById);
-route.patch("/reset-user-data", isLoggedIn, resetUserRentData);
+route.patch("/reset-user-data/:id", isLoggedIn, resetUserRentData);
 route.post("/aaddharimage", isLoggedIn, getAadhaarImage);
 route.post("/get-member-aadhaar-image", isLoggedIn, getAadhaarImageForMember);
 
