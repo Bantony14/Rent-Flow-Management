@@ -19,6 +19,7 @@ import {
   getReceiptById,
   getAadhaarImage,
   getAadhaarImageForMember,
+  resetUserRentData,
 } from "../controllers/user.controller.js";
 import { isAuthorized, isLoggedIn } from "../middlewares/authUser.js";
 import { uploadImages } from "../middlewares/upload.middleware.js";
@@ -70,6 +71,7 @@ route.put(
   updateMemberInfo,
 );
 route.get("/getreceipt", isLoggedIn, getReceiptById);
+route.patch("/reset-user-data", isLoggedIn, resetUserRentData);
 route.post("/aaddharimage", isLoggedIn, getAadhaarImage);
 route.post("/get-member-aadhaar-image", isLoggedIn, getAadhaarImageForMember);
 

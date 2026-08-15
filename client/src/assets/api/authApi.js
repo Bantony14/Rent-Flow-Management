@@ -71,6 +71,10 @@ export function fetchImage(id) {
   return API.post("/aaddharimage", { id });
 }
 
+export function resetUserData() {
+  return API.patch("/reset-user-data");
+}
+
 // ============================================
 // Member Management APIs
 // ============================================

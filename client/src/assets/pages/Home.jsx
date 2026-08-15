@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Phone } from "lucide-react";
 import Button from "../components/MyButton";
 import { getAllRoom } from "../api//roomApi";
+import RecruiterPopup from "../components/RecruiterPopup";
 
 function Home() {
   const [rooms, setRooms] = useState([]);
@@ -44,6 +45,7 @@ function Home() {
 
   return (
     <>
+      <RecruiterPopup />
       {/* ==================== HERO SECTION ==================== */}
       <section className="relative bg-zinc-950 text-white overflow-hidden">
         {/* Background Image */}

@@ -8,7 +8,7 @@ import fs from "fs/promises";
 import otpTemplate from "../utils/optTemplate.js";
 import Room from "../models/room.model.js";
 import ReceiptHistory from "../models/receiptHistory.model.js";
-import { errorMonitor } from "events";
+import PaymentHistory from "../models/paymentHistory.model.js";
 
 export const userRegistration = async (req, res, next) => {
   const {
@@ -475,6 +475,8 @@ export const userLogin = async (req, res, next) => {
     user.member.forEach(
       (value) => (value.aadhaarNumber = decrypt(value.aadhaarNumber)),
     );
+
+    console.log("usermember>>", user.member);
 
     res.status(200).json({
       success: true,
@@ -981,6 +983,46 @@ export const getMe = async (req, res, next) => {
       success: true,
       message: "Here your information",
       user,
+    });
+  } catch (error) {
+    return next(new ErrorHandler(error.message, 400));
+  }
+};
+
+//  this api is for reset user few data after payment
+
+export const resetUserRentData = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    // Check user exists
+    const user = await User.findById(id);
+
+    if (!user) {
+      return next(new ErrorHandler("user not found", 404));
+    }
+
+    // Reset user's rent data
+    user.nextRentGeneratedMonth = "";
+    user.paymentStatus = "Unpaid";
+    user.dueAmount = 0;
+    user.lastRentAmount = 0;
+
+    await user.save();
+
+    // Delete receipt history of this tenant
+    await ReceiptHistory.deleteMany({
+      tenantId: id,
+    });
+
+    // Delete payment history of this tenant
+    await PaymentHistory.deleteMany({
+      tenant: id,
+    });
+
+    res.status(200).json({
+      success: true,
+      message: "User rent data and payment history reset successfully",
     });
   } catch (error) {
     return next(new ErrorHandler(error.message, 400));

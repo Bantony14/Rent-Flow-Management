@@ -4,6 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { resetUserData } from "../../api/authApi";
 
 function RentDueCard({ user }) {
   const [loading, setLoading] = useState(false);
@@ -220,10 +221,26 @@ function RentDueCard({ user }) {
 
       {/* Action */}
       {isPaid === "Paid" ? (
-        <div className="flex items-center justify-center gap-2 rounded-2xl bg-green-100 py-3 font-semibold text-green-700 border border-green-200">
-          <CheckCircle2 size={18} />
-          Rent Paid Successfully
-        </div>
+        <>
+          <div className="flex items-center justify-center gap-2 rounded-2xl border border-green-200 bg-green-100 py-3 font-semibold text-green-700">
+            <CheckCircle2 size={18} />
+            Rent Paid Successfully
+          </div>
+
+          <div className="mt-3 flex flex-col items-center justify-center gap-3 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-4 text-center">
+            <p className="text-sm font-medium text-amber-700">
+              Want to test the payment flow again?
+            </p>
+
+            <button
+              type="button"
+              className="rounded-xl bg-amber-500 px-5 py-2 text-sm font-semibold text-white transition hover:bg-amber-600 active:scale-95"
+              onClick={() => resetUserData()}
+            >
+              Reset Payment
+            </button>
+          </div>
+        </>
       ) : dueAmount > 0 ? (
         <button
           onClick={handlePayNow}

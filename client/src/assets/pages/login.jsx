@@ -205,6 +205,16 @@ function Login() {
             {loading ? "Logging in..." : "Login"}
           </button>
         </div>
+        {/* Dummy Tenant Credentials */}
+        <div className="mt-4 rounded-xl border border-blue-200 bg-blue-50 px-4 py-3 text-center">
+          <p className="text-xs font-medium text-blue-700">Demo Tenant Login</p>
+          <p className="mt-1 text-xs text-gray-600">
+            Email: <span className="font-semibold">dummyTenant@gmail.com</span>
+          </p>
+          <p className="text-xs text-gray-600">
+            Password: <span className="font-semibold">Dummy@123</span>
+          </p>
+        </div>
       </form>
     </div>
   );
