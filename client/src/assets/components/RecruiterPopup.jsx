@@ -29,7 +29,7 @@ const RecruiterPopup = () => {
           </p>
 
           <h2 className="text-2xl sm:text-3xl font-black text-white text-center leading-tight mb-2">
-            Want to See the
+            Want to Explore the
             <span className="block bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
               Admin Panel?
             </span>
@@ -38,8 +38,8 @@ const RecruiterPopup = () => {
           <p className="text-zinc-400 text-sm sm:text-base leading-relaxed text-center mb-7">
             Visit my portfolio website and head over to the{" "}
             <span className="font-semibold text-cyan-400">Projects</span>{" "}
-            section — you'll find screenshots showing how the admin dashboard
-            works.
+            section to see screenshots of the admin dashboard and project
+            features.
           </p>
 
           <a
@@ -51,7 +51,26 @@ const RecruiterPopup = () => {
             🔗 Visit My Portfolio →
           </a>
 
-          <div className="mt-6 rounded-2xl border border-cyan-500/20 bg-cyan-500/5 px-4 py-3">
+          {/* User Panel Login */}
+          <div className="mt-5 rounded-2xl border border-cyan-500/20 bg-cyan-500/5 px-4 py-4 text-center">
+            <p className="text-zinc-300 text-sm font-medium mb-2">
+              Want to explore the User Panel?
+            </p>
+
+            <p className="text-zinc-500 text-xs leading-relaxed mb-3">
+              Go to the <span className="text-cyan-400 font-medium">Login</span>{" "}
+              page. Demo credentials are available there.
+            </p>
+
+            <a
+              href="/login"
+              className="inline-flex items-center justify-center rounded-xl border border-cyan-500/30 bg-cyan-500/10 px-5 py-2 text-sm font-semibold text-cyan-400 transition hover:bg-cyan-500/20 hover:text-cyan-300"
+            >
+              Go to Login →
+            </a>
+          </div>
+
+          <div className="mt-5 rounded-2xl border border-zinc-800 bg-zinc-900/50 px-4 py-3">
             <p className="text-zinc-500 text-xs sm:text-[0.8rem] text-center leading-relaxed">
               📌 If this popup disappears, go back to{" "}
               <span className="text-cyan-400 font-medium">Home</span> and
