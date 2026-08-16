@@ -8,6 +8,7 @@ import { resetUserData } from "../../api/authApi";
 
 function RentDueCard({ user }) {
   const [loading, setLoading] = useState(false);
+  const [resetLoading, setResetLoading] = useState(null);
   const navigate = useNavigate();
   const totalRent = user?.rentPrice;
   const isPaid = user?.paymentStatus;
@@ -27,6 +28,17 @@ function RentDueCard({ user }) {
     "November",
     "December",
   ];
+
+  async function resetFewData() {
+    try {
+      setResetLoading(true);
+      const res = await resetUserData(user._id);
+    } catch (error) {
+      toast.error(error?.response?.data?.message);
+    } finally {
+      setResetLoading(false);
+    }
+  }
 
   const date = new Date(user.joiningDate);
 
@@ -235,9 +247,12 @@ function RentDueCard({ user }) {
             <button
               type="button"
               className="rounded-xl bg-amber-500 px-5 py-2 text-sm font-semibold text-white transition hover:bg-amber-600 active:scale-95"
-              onClick={() => resetUserData()}
+              onClick={() => {
+                resetFewData();
+                window.location.reload();
+              }}
             >
-              Reset Payment
+              {resetLoading ? "Data reseting...." : "Reset Payment"}
             </button>
           </div>
         </>

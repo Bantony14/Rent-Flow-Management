@@ -476,8 +476,6 @@ export const userLogin = async (req, res, next) => {
       (value) => (value.aadhaarNumber = decrypt(value.aadhaarNumber)),
     );
 
-    console.log("usermember>>", user.member);
-
     res.status(200).json({
       success: true,
       message: "user login successfully",
@@ -1007,6 +1005,7 @@ export const resetUserRentData = async (req, res, next) => {
     user.paymentStatus = "Unpaid";
     user.dueAmount = 0;
     user.lastRentAmount = 0;
+    user.rentHistory = [];
 
     await user.save();
 

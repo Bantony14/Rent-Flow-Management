@@ -71,8 +71,9 @@ export function fetchImage(id) {
   return API.post("/aaddharimage", { id });
 }
 
-export function resetUserData() {
-  return API.patch("/reset-user-data");
+export function resetUserData(id) {
+  console.log("id>>>", id);
+  return API.patch(`/reset-user-data/${id}`);
 }
 
 // ============================================
