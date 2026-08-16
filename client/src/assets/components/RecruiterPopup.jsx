@@ -1,7 +1,27 @@
+import { Flashlight } from "lucide-react";
+import { useEffect } from "react";
 import { useState } from "react";
 
 const RecruiterPopup = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(
+    !sessionStorage.getItem("showPopUp"),
+  );
+
+  const closePopUp = () => {
+    sessionStorage.setItem("showPopUp", "true");
+    setIsVisible(false);
+  };
+
+  useEffect(() => {
+    const handleUnload = () => {
+      sessionStorage.removeItem("showPopUp");
+    };
+    window.addEventListener("beforeunload", handleUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleUnload);
+    };
+  }, []);
 
   if (!isVisible) return null;
 
@@ -12,7 +32,7 @@ const RecruiterPopup = () => {
 
         <div className="relative w-full max-w-md rounded-3xl border border-zinc-800 bg-zinc-900/50 backdrop-blur-xl shadow-2xl p-7 sm:p-9">
           <button
-            onClick={() => setIsVisible(false)}
+            onClick={() => closePopUp()}
             className="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full border border-zinc-800 bg-zinc-900/70 text-zinc-400 transition duration-300 hover:border-cyan-500/40 hover:text-white cursor-pointer text-sm"
             aria-label="Close popup"
           >
