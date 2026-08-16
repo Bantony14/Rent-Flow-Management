@@ -33,6 +33,7 @@ function RentDueCard({ user }) {
     try {
       setResetLoading(true);
       const res = await resetUserData(user._id);
+      window.location.reload();
     } catch (error) {
       toast.error(error?.response?.data?.message);
     } finally {
@@ -249,7 +250,6 @@ function RentDueCard({ user }) {
               className="rounded-xl bg-amber-500 px-5 py-2 text-sm font-semibold text-white transition hover:bg-amber-600 active:scale-95"
               onClick={() => {
                 resetFewData();
-                window.location.reload();
               }}
             >
               {resetLoading ? "Data reseting...." : "Reset Payment"}

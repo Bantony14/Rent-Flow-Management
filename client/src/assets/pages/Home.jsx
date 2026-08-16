@@ -15,7 +15,7 @@ function Home() {
   const ownerInfo = {
     name: "Bantony Singh",
     phone: "+91 91041 53677",
-    email: "bantonysin95@gmail.com",
+    email: "bantony.singh.dev@gmail.com",
   };
 
   useEffect(() => {
