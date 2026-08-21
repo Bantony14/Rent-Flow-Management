@@ -75,4 +75,8 @@ route.patch("/reset-user-data/:id", isLoggedIn, resetUserRentData);
 route.post("/aaddharimage", isLoggedIn, getAadhaarImage);
 route.post("/get-member-aadhaar-image", isLoggedIn, getAadhaarImageForMember);
 
+route.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
+
 export default route;
