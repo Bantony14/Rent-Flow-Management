@@ -1006,6 +1006,7 @@ export const resetUserRentData = async (req, res, next) => {
     user.dueAmount = 0;
     user.lastRentAmount = 0;
     user.rentHistory = [];
+    user.countNumberOftry = user.countNumberOftry + 1;
 
     await user.save();
 

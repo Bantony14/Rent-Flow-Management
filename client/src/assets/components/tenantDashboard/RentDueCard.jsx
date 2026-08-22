@@ -254,6 +254,8 @@ function RentDueCard({ user }) {
             >
               {resetLoading ? "Data reseting...." : "Reset Payment"}
             </button>
+
+            <p> Number of Try : {user.countNumberOftry}</p>
           </div>
         </>
       ) : dueAmount > 0 ? (

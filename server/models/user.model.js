@@ -211,6 +211,11 @@ const userSchema = new mongoose.Schema(
 
     properties: [],
 
+    countNumberOftry: {
+      default: 0,
+      type: Number,
+    },
+
     otp: String,
     otpExpiry: Date,
   },
