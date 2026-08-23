@@ -8,20 +8,26 @@ import ScrollToTop from "./assets/components/ScrollToTop";
 import Login from "./assets/pages/login";
 import TenantDashboard from "./assets/pages/TenantPages/TenantDashboard";
 import ProtectedRoute from "./assets/routes/ProtectedRoute";
-import AdminDashboard from "./assets/pages/AdminPages/AdminDashboard";
 import AllTenants from "./assets/pages/AdminPages/AllTenants";
 import UserInfoCard from "./assets/pages/AdminPages/UserInfo";
 import PaymentSuccess from "./assets/components/paymentPage/PaymentSuccess.jsx";
 import PaymentFailed from "./assets/components/paymentPage/PaymentFailed";
 import TenantProfile from "./assets/pages/TenantPages/TenantProfile.jsx";
 import Forgotpassword from "./assets/pages/ForgotPassword.jsx";
-import { Receipt } from "lucide-react";
+import { LoaderCircle, Receipt } from "lucide-react";
 import ReceiptHistory from "./assets/pages/TenantPages/Receipt.jsx";
 import AdminProtection from "./assets/routes/AdminProtection.jsx";
 import LoginProtection from "./assets/routes/LoginProtection.jsx";
 import RoomDetails from "./assets/pages/RoomDetail.jsx";
-import AllRoom from "./assets/pages/AdminPages/AllRoom.jsx";
 import Properties from "./assets/pages/Properties.jsx";
+import { lazy, Suspense } from "react";
+import LoadingScreen from "./assets/components/LoadingScreen.jsx";
+
+const AdminDashboard = lazy(
+  () => import("./assets/pages/AdminPages/AdminDashboard"),
+);
+
+const AllRoom = lazy(() => import("./assets/pages/AdminPages/AllRoom.jsx"));
 
 function App() {
   return (
@@ -65,7 +71,9 @@ function App() {
             path="/allroom"
             element={
               <AdminProtection>
-                <AllRoom />
+                <Suspense fallback={<LoadingScreen />}>
+                  <AllRoom />
+                </Suspense>
               </AdminProtection>
             }
           />
@@ -74,7 +82,9 @@ function App() {
             path="/admin/dashboard"
             element={
               <AdminProtection>
-                <AdminDashboard />
+                <Suspense fallback={<LoadingScreen />}>
+                  <AdminDashboard />
+                </Suspense>
               </AdminProtection>
             }
           />
