@@ -152,6 +152,7 @@ function Login() {
                     hover:text-cyan-600
                     transition
                   "
+                  aria-label={showPassword ? "Hide password" : "Show password"}
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
