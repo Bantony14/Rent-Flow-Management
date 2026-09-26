@@ -16,8 +16,10 @@ import toast from "react-hot-toast";
 
 import AuthProvider, { AuthContext } from "../context/authContext";
 
+const mockNavigation = jest.fn();
+
 jest.mock("react-router-dom", () => ({
-  useNavigate: () => jest.fn(),
+  useNavigate: () => mockNavigation,
 }));
 
 jest.mock("react-hot-toast", () => ({
@@ -158,4 +160,89 @@ test("full login flow test", async () => {
 
   expect(emailInput).toHaveValue("");
   expect(passwordInput).toHaveValue("");
+});
+
+// Error flow test
+test("full login error test", async () => {
+  const mockUserLogin = jest.mocked(userLogin);
+
+  mockUserLogin.mockRejectedValue({
+    response: {
+      statusCode: 403,
+      data: {
+        message: "Invalid Credential",
+      },
+    },
+  });
+
+  const mockSetUser = jest.fn();
+  render(
+    <AuthContext.Provider value={{ setUser: mockSetUser }}>
+      <Login />
+    </AuthContext.Provider>,
+  );
+
+  const user = userEvent.setup();
+
+  const emailInput = screen.getByPlaceholderText("Enter your email");
+  const passwordInput = screen.getByPlaceholderText("Enter your password");
+  const logingBtn = screen.getByRole("button", { name: "Login" });
+
+  await user.type(emailInput, "bantonysin@gmail.com");
+  await user.type(passwordInput, "B@ntony14102002");
+
+  await user.click(logingBtn);
+
+  expect(toast.error).toHaveBeenCalledWith("Invalid Credential");
+});
+
+// pending response check
+test("pending response check", async () => {
+  const mockUserLogin = jest.mocked(userLogin);
+
+  mockUserLogin.mockReturnValue(new Promise(() => {}));
+
+  const mockSetUser = jest.fn();
+  render(
+    <AuthContext.Provider value={{ setUser: mockSetUser }}>
+      <Login />
+    </AuthContext.Provider>,
+  );
+
+  const user = userEvent.setup();
+
+  const emailInput = screen.getByPlaceholderText("Enter your email");
+  const passwordInput = screen.getByPlaceholderText("Enter your password");
+  const logingBtn = screen.getByRole("button", { name: "Login" });
+
+  await user.type(emailInput, "bantonysin@gmail.com");
+  await user.type(passwordInput, "B@ntony14102002");
+
+  await user.click(logingBtn);
+
+  expect(logingBtn).toBeDisabled();
+
+  expect(
+    screen.getByRole("button", { name: "Logging in..." }),
+  ).toBeInTheDocument();
+});
+
+// forgot password check for navigation
+
+test("forgot password check for navigation", async () => {
+  const mockSetUser = jest.fn();
+  render(
+    <AuthContext.Provider value={{ setUser: mockSetUser }}>
+      <Login />
+    </AuthContext.Provider>,
+  );
+
+  const user = userEvent.setup();
+  const forgotBtn = screen.getByRole("button", {
+    name: "Forgot Password?",
+  });
+
+  await user.click(forgotBtn);
+
+  expect(mockNavigation).toHaveBeenCalledWith("/forgot-password");
 });
