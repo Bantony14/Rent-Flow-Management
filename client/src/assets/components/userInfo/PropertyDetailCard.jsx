@@ -28,10 +28,10 @@ function PropertyDetails({
               }}
               value={user?.building}
             >
+              <option value="">Select Building</option>
               {buildingName.map((buildingName) => {
                 return (
                   <>
-                    <option value="">Select Building</option>
                     <option key={buildingName} value={buildingName}>
                       {buildingName}
                     </option>
