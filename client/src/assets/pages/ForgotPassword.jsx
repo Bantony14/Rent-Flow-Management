@@ -24,7 +24,7 @@ function Forgotpassword() {
   // sending otp on email
   async function otpSending() {
     if (!email) {
-      toast.error("please enter email ");
+      toast.error("please enter email");
       return;
     }
 
