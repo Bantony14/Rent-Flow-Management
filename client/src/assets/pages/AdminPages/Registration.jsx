@@ -232,6 +232,7 @@ function Registration() {
               return (
                 <div key={index}>
                   <select
+                    aria-label={value.name}
                     name={value.name}
                     value={formData[value.name]}
                     onChange={handleChange}
