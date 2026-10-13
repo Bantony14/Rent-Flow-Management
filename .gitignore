@@ -10,3 +10,5 @@ server/.env
 # build folders
 dist/
 build/
+
+coverage/
