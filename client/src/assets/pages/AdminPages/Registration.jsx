@@ -153,11 +153,11 @@ function Registration() {
       const response = await userRegistrationApi(tenantDetails);
       toast.success(response.data.message);
       setFormData(initialState);
-      setaddhaarFront("");
+      setAddhaarFront("");
       setAddhaarBack("");
       setProfileImage("");
     } catch (error) {
-      return toast.error(error.response.data.message);
+      return toast.error(error?.response?.data?.message);
     } finally {
       setloading(false);
     }

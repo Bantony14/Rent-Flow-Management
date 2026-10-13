@@ -15,7 +15,8 @@ import { AuthContext } from "../context/authContext";
 import Registration from "../pages/AdminPages/Registration";
 import { paymentCheck } from "../api/paymentApi";
 import { Proportions } from "lucide-react";
-import { getRoomByBuilding } from "../api/authApi";
+import { getRoomByBuilding, userRegistrationApi } from "../api/authApi";
+import toast from "react-hot-toast";
 
 jest.mock("../api/authApi.js", () => ({
   getRoomByBuilding: jest.fn(),
@@ -59,7 +60,13 @@ test("FORM SUBMIT TEST", async () => {
       },
     });
 
-  mockGetRoomByBBuilding.mock;
+  const mockUserResgistrationApi = jest
+    .mocked(userRegistrationApi)
+    .mockResolvedValueOnce({
+      data: {
+        message: "tenant Added succeessfully",
+      },
+    });
   render(
     <AuthContext.Provider value={{ user: mockUserData }}>
       <Registration />
@@ -83,6 +90,13 @@ test("FORM SUBMIT TEST", async () => {
   const roomNumber = screen.getByRole("combobox", {
     name: "roomNumber",
   });
+  const joiningDate = screen.getByPlaceholderText("Select date of joining");
+  const email = screen.getByPlaceholderText("Enter your email address");
+  const aadhaarFront = document.getElementById("aadhaarFront");
+  const aadhaarBack = document.getElementById("aadhaarBack");
+
+  const submitBtn = screen.getByText("Register");
+
   const doc = [
     fullName,
     aadhaarNumber,
@@ -91,6 +105,11 @@ test("FORM SUBMIT TEST", async () => {
     password,
     building,
     roomNumber,
+    joiningDate,
+    email,
+    aadhaarFront,
+    aadhaarBack,
+    submitBtn,
   ];
 
   const file = new File(["image content"], "profile.png", {
@@ -105,14 +124,19 @@ test("FORM SUBMIT TEST", async () => {
   await user.type(password, "B@ntony14102002");
   await user.selectOptions(building, "Ajanta Tower");
   await user.selectOptions(roomNumber, "A-102");
+  await user.type(joiningDate, "2026-10-13");
+  await user.type(email, "bantonysin@gmail.com");
+  await user.upload(aadhaarFront, file);
+  await user.upload(aadhaarBack, file);
+  await user.click(submitBtn);
 
-  //   doc.forEach((value) => {
-  //     expect(value).toBeInTheDocument();
-  //   });
+  await doc.forEach((value) => {
+    expect(value).toBeInTheDocument();
+  });
 
-  expect(roomNumber).toHaveValue("A-102");
-
+  expect(aadhaarBack.files[0]).toBe(file);
+  expect(aadhaarFront.files[0]).toBe(file);
   expect(profileImageInput.files[0]).toBe(file);
 
-  expect(profileImageInput).toBeInTheDocument();
+  expect(userRegistrationApi).toHaveBeenCalled();
 });

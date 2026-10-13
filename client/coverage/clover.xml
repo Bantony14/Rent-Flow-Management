@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1791897334239" clover="3.2.0">
+  <project timestamp="1791897334239" name="All files">
+    <metrics statements="101" coveredstatements="78" conditionals="71" coveredconditionals="63" methods="23" coveredmethods="19" elements="195" coveredelements="160" complexity="0" loc="101" ncloc="101" packages="3" files="3" classes="3"/>
+    <package name="context">
+      <metrics statements="15" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="authContext.jsx" path="D:\rent-flow-main\client\src\assets\context\authContext.jsx">
+        <metrics statements="15" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="pages.AdminPages">
+      <metrics statements="79" coveredstatements="69" conditionals="67" coveredconditionals="59" methods="18" coveredmethods="17"/>
+      <file name="Registration.jsx" path="D:\rent-flow-main\client\src\assets\pages\AdminPages\Registration.jsx">
+        <metrics statements="79" coveredstatements="69" conditionals="67" coveredconditionals="59" methods="18" coveredmethods="17"/>
+        <line num="16" count="86" type="stmt"/>
+        <line num="28" count="86" type="stmt"/>
+        <line num="29" count="86" type="stmt"/>
+        <line num="30" count="86" type="stmt"/>
+        <line num="31" count="86" type="stmt"/>
+        <line num="32" count="86" type="stmt"/>
+        <line num="34" count="86" type="stmt"/>
+        <line num="35" count="86" type="stmt"/>
+        <line num="36" count="86" type="stmt"/>
+        <line num="37" count="86" type="stmt"/>
+        <line num="38" count="86" type="stmt"/>
+        <line num="39" count="86" type="stmt"/>
+        <line num="40" count="86" type="stmt"/>
+        <line num="41" count="86" type="cond" truecount="2" falsecount="0"/>
+        <line num="42" count="29" type="stmt"/>
+        <line num="44" count="86" type="cond" truecount="2" falsecount="0"/>
+        <line num="45" count="26" type="stmt"/>
+        <line num="50" count="86" type="stmt"/>
+        <line num="51" count="4" type="stmt"/>
+        <line num="52" count="4" type="stmt"/>
+        <line num="54" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="55" count="3" type="stmt"/>
+        <line num="56" count="3" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="68" count="4" type="stmt"/>
+        <line num="72" count="86" type="stmt"/>
+        <line num="73" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="75" count="1" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="84" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="89" count="86" type="stmt"/>
+        <line num="90" count="86" type="stmt"/>
+        <line num="94" count="74" type="cond" truecount="1" falsecount="1"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="101" count="74" type="cond" truecount="2" falsecount="0"/>
+        <line num="102" count="1" type="stmt"/>
+        <line num="109" count="1" type="stmt"/>
+        <line num="112" count="73" type="stmt"/>
+        <line num="120" count="1" type="stmt"/>
+        <line num="122" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="123" count="0" type="stmt"/>
+        <line num="125" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="126" count="0" type="stmt"/>
+        <line num="129" count="1" type="cond" truecount="4" falsecount="1"/>
+        <line num="130" count="0" type="stmt"/>
+        <line num="131" count="0" type="stmt"/>
+        <line num="136" count="1" type="stmt"/>
+        <line num="139" count="1" type="stmt"/>
+        <line num="140" count="1" type="stmt"/>
+        <line num="141" count="1" type="stmt"/>
+        <line num="143" count="1" type="stmt"/>
+        <line num="144" count="10" type="stmt"/>
+        <line num="148" count="1" type="stmt"/>
+        <line num="150" count="1" type="stmt"/>
+        <line num="152" count="1" type="stmt"/>
+        <line num="153" count="1" type="stmt"/>
+        <line num="154" count="1" type="stmt"/>
+        <line num="155" count="1" type="stmt"/>
+        <line num="156" count="1" type="stmt"/>
+        <line num="157" count="1" type="stmt"/>
+        <line num="158" count="1" type="stmt"/>
+        <line num="160" count="0" type="stmt"/>
+        <line num="162" count="1" type="stmt"/>
+        <line num="166" count="86" type="stmt"/>
+        <line num="224" count="1" type="stmt"/>
+        <line num="231" count="860" type="cond" truecount="4" falsecount="0"/>
+        <line num="232" count="172" type="stmt"/>
+        <line num="263" count="222" type="stmt"/>
+        <line num="278" count="688" type="stmt"/>
+        <line num="327" count="0" type="stmt"/>
+        <line num="378" count="1" type="stmt"/>
+        <line num="414" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+      <file name="formValidation.js" path="D:\rent-flow-main\client\src\assets\utils\formValidation.js">
+        <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="86" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="86" type="stmt"/>
+        <line num="100" count="86" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
